@@ -37,22 +37,6 @@ function moveUser() {//determines how/where to move user. Parameters: numberRoll
 
 	//returns the users new position
 }
-
-
-
-function displayGameStatus() {
-	//if this is the users first load of game
-		//statusArray[die 6, position 0]
-	//Or else
-		//What is current location on mountain. statusArray[1]
-		//what is die user is using. statusArray[0]
-
-	//return statusArray[die, newPosition] 
-}
-function moveForward() {//Steps to take when user rolls an ever number
-
-}
-
 diceGameStart();//Starts aplication
 
 
