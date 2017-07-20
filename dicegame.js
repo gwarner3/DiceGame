@@ -6,7 +6,7 @@ function diceGameStart() {
 	var mountainTop = 10;
 	
 	//display users starting game status
-	displayGameStatus(currentPosition, dieArray[dieSides]);
+	displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop);
 
 	//While the user is in position from 0 to mountainTop. //while(currentPosition > 0 && currentPosition <= mountainTop)
 	while(currentPosition >= 0 && currentPosition <= mountainTop) {
@@ -33,15 +33,25 @@ function diceGameStart() {
 				//dieSides += 1
 
 		//Display users current game status
-		displayGameStatus(currentPosition, dieArray[dieSides]); 
+		displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop); 
 	
 	}//END WHILE
-
 }
-function displayGameStatus(currentPosition, dieSides) {
-	//determine if user is still on mountain or over the mountain. isUserOnMountain(newPosition)
-	//isUserOnMountain(currentPosition, mountainTop);
-	console.log("You are at position " + currentPosition + " and you have a " + dieSides + " sided die." );
+function displayGameStatus(currentPosition, numberRolled, dieSides, mountainTop) {
+	//determine if user is still on mountain or over the mountain.
+	
+	if (currentPosition >= mountainTop){ //if player currentPosition is >= mountainTop
+		//they have won, end the game
+		console.log("You won");		
+	} else if (currentPosition === 0 && numberRolled < 0) {//if player currentPosition = 0 and numberRolled < 0		
+		//do nothing
+	} else if (currentPosition < 0) {//if player numberRolled > currentPosition and currentPosition > 0		
+		//player has fallen off the mountain
+		//end game
+		console.log("You have fallen off the mountain");
+	} else {//if none of the above are true, display game status
+		console.log("You are at position " + currentPosition + " and you have a " + dieSides + " sided die." );
+	}	
 }
 function getNumberRolled(dieSides) {//parameter is die index in dieArray[dieSides]
 	//declare randomNumber as number generated based on what die was rolled. i.e, if die 4 is being rolled, random number between 1 and 4
