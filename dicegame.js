@@ -21,32 +21,25 @@ function diceGameStart() {
 				//code to run if user clicks cancel button. For now, break app
 				break; //testing purposes only
 			}
-		//move user based on number rolled.
+
 		currentPosition = moveUser(numberRolled, currentPosition);
 
-		//determine if die is upgraded upgradeDie(numberRolled)
 		var newDieSides = upgradeDie(numberRolled, dieSides);
+		dieSides = newDieSides;
 
-
-		//Display users current game status
-		displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop); 
-	
-	}//END WHILE
+		displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop); 	
+	}
 }
 function upgradeDie(numberRolled, dieSides) {
-	var y = dieSides;
-	var z = numberRolled;
-	//break;
-	//If a player rolls a 6 and dieSides is not equal to 0, they downgrade one die
-		//move the dieSides -= 1
-	//If a player rolls a 1 and dieSides is not equal to 5 (lengthOFArray) they upgrade to the next die.
-		//dieSides += 1	
+	if (numberRolled === 6 && dieSides !== 0) {
+		dieSides -= 1;
+	} else if (numberRolled === 1 && dieSides !== 4) {
+		dieSides += 1;
+	}
+	return dieSides;
 }
 function displayGameStatus(currentPosition, numberRolled, dieSides, mountainTop) {
-	//determine if user is still on mountain or over the mountain.
-	
-	if (currentPosition >= mountainTop){ //if player currentPosition is >= mountainTop
-		//they have won, end the game
+	if (currentPosition >= mountainTop){		
 		console.log("You won");		
 	} else if (currentPosition === 0 && numberRolled < 0) {//if player currentPosition = 0 and numberRolled < 0		
 		//do nothing
