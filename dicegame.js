@@ -4,11 +4,11 @@ function diceGameStart() {
 	var dieSides = 1;
 	var currentPosition = 0;
 	var mountainTop = 10;
-	
-	//displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop);
+
+	alert("Quick Rules: You are free climbing a wall " + mountainTop + " meters high; no harness, no rope. Roll an even number and move forward; roll odd, move backwards. Roll a 6 and you'll get a better die, roll a 1 and you'll get a worse die. Good luck!");
 
 	while(currentPosition >= 0 && currentPosition < mountainTop) {
-		var rollDie = confirm("Roll your die. Click OK to roll die, Cancel to quit game.");
+		var rollDie = confirm("You are at " + currentPosition + " meters.\n" + "Roll your die. Click OK to roll die, Cancel to quit game.");
 
 			if (rollDie) {
 				var numberRolled = getNumberRolled(dieArray[dieSides]);
@@ -30,23 +30,21 @@ function upgradeDie(numberRolled, dieSides) {
 	} else if (numberRolled === 1 && dieSides !== 4) {
 		dieSides += 1;
 	}
+
 	return dieSides;
 }
 function displayGameStatus(currentPosition, numberRolled, dieSides, mountainTop) {
 	if (currentPosition >= mountainTop){		
-		console.log("You won");		
-	} else if (currentPosition === 0 && numberRolled < 0) {
-		//do nothing
-	} else if (currentPosition < 0) {//if player numberRolled > currentPosition and currentPosition > 0		
-		//player has fallen off the mountain
-		//end game
-		console.log("You have fallen off the mountain");
-	} else {//if none of the above are true, display game status
-		console.log("You are at position " + currentPosition + " and you have a " + dieSides + " sided die." );
+		console.log("Congratulations, you just rolled a " + numberRolled + " and free climbed a total " + currentPosition + " meters!");		
+	} else if (currentPosition < 0) {
+		console.log("Uh-oh, you rolled a " + numberRolled + " and fell right off the wall.");
+	} else {
+		console.log("You rolled a " + numberRolled + ". You are now at position " + currentPosition + " holding a " + dieSides + " sided die." );
 	}	
 }
 function getNumberRolled(dieSides) {
 	var numberRolled = Math.floor((Math.random() * dieSides) + 1);
+
 	return numberRolled;		
 }
 function moveUser(numberRolled, currentPosition) { 
@@ -58,7 +56,7 @@ function moveUser(numberRolled, currentPosition) {
 	} else if (numberRolled % 2 === 0) {	
 		newPosition = numberRolled + currentPosition;
 	}
+
 	return newPosition;
 }
-
 diceGameStart();
