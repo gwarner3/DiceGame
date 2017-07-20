@@ -3,7 +3,7 @@ function diceGameStart() {
 	var dieArray = [4,6,8,12,20];
 	var dieSides = 1;
 	var currentPosition = 0;
-	var mountainTop = 60;
+	var mountainTop = 10;
 	
 	//While the user is in position from 0 to mountainTop. //while(currentPosition > 0 && currentPosition <= mountainTop)
 	while(currentPosition >= 0 && currentPosition <= mountainTop) {
@@ -26,10 +26,14 @@ function diceGameStart() {
 
 		//move user based on number rolled.
 		//declare newPosition = moveUser(numberRolled, currentPosition)
-		var newPosition = moveUser(numberRolled, currentPosition);
-		var x = newPosition;
+		currentPosition = moveUser(numberRolled, currentPosition);
+		//var x = newPosition;
 		var y = currentPosition;
-		break;
+		//break;
+
+		//If new position is negative
+			//endGame
+		//determine if user is still on mountain. isUserOnMountain(newPosition)
 
 		//determine if die is upgraded upgradeDie(numberRolled)
 			//If a player rolls a 6 and dieSides is not equal to 0, they downgrade one die
@@ -70,6 +74,9 @@ function moveUser(numberRolled, currentPosition) {//determines how/where to move
 
 	//returns the users new position
 
+
+}
+function isUserOnMountain() {
 
 }
 diceGameStart();//Starts aplication
