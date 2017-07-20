@@ -25,13 +25,6 @@ function diceGameStart() {
 		//move user based on number rolled.
 		//currentPosition
 		currentPosition = moveUser(numberRolled, currentPosition);
-		//var x = newPosition;
-		var y = currentPosition;
-		//break;
-
-		//determine if user is still on mountain or over the mountain. isUserOnMountain(newPosition)
-		//isUserOnMountain(currentPosition, mountainTop);
-		
 
 		//determine if die is upgraded upgradeDie(numberRolled)
 			//If a player rolls a 6 and dieSides is not equal to 0, they downgrade one die
@@ -46,6 +39,8 @@ function diceGameStart() {
 
 }
 function displayGameStatus(currentPosition, dieSides) {
+	//determine if user is still on mountain or over the mountain. isUserOnMountain(newPosition)
+	//isUserOnMountain(currentPosition, mountainTop);
 	console.log("You are at position " + currentPosition + " and you have a " + dieSides + " sided die." );
 }
 function getNumberRolled(dieSides) {//parameter is die index in dieArray[dieSides]
@@ -69,22 +64,5 @@ function moveUser(numberRolled, currentPosition) {//determines how/where to move
 		newPosition = numberRolled + currentPosition;
 	}
 	return newPosition;
-	//In case numberRolled is odd		
-		//If player rolls an odd number and have moved forward, they move backward the number of spaces rolled
-			//If the number of spaces they are to move backward is greater than the number of spaces they have moved forward, they fall off the mountain and are out of the game
-	
-	//In case numberRolled is even
-	//If player rolls an even number, they move forward the number of spaces rolled
-		
-
-	//returns the users new position
-
-
 }
-// function isUserOnMountain(currentPosition, mountainTop) {
-	
-// 	//does user have more than 10 or a negative number. Should I determine the current position near the end of the loop?
-// 	//If new position is negative
-// 	//endGame
-// }
 diceGameStart();//Starts aplication
