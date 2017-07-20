@@ -1,4 +1,4 @@
-# DiceGame
+﻿# DiceGame
 Design and code a game that uses at least one 4-sided, 6-sided, 8-sided, 10-sided, 12-sided, and 20-sided dice.
 -    You come up with the rules and design
 -    The game must involve some form of user interaction (user “rolls” the dice perhaps)
@@ -18,5 +18,5 @@ Design and code a game that uses at least one 4-sided, 6-sided, 8-sided, 10-side
 	//If player rolls an even number, they move forward the number of spaces rolled
 	//If a player rolls a 1, they move forward 1 and they upgrade to the next die.
 		//If player die already has 20 faces, user does not upgrade or downgrade die
-	//If a player rolls a 6, they downgrade one die
-//Fame ends when/if user moves 60 or more spaces
+	//If a player rolls a 6, they move forward but they downgrade one die
+//Game ends when/if user moves 60 or more spaces
