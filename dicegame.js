@@ -9,7 +9,7 @@ function diceGameStart() {
 	while(currentPosition >= 0 && currentPosition <= mountainTop) {
 
 		//display users current game status. Since game is first starting, currentPosition = 0, dieArray[dieSides]
-		console.log("You are at position " + currentPosition + " and you have a " + dieSides + " sided die." );
+		console.log("You are at position " + currentPosition + " and you have a " + dieArray[dieSides] + " sided die." );
 		//test code currentPosition++; 
 		
 		//prompt user to roll die
@@ -31,6 +31,9 @@ function diceGameStart() {
 		var y = currentPosition;
 		//break;
 
+
+		//Should the game end
+		//does user have more than 10 or a negative number. Should I determine the current position near the end of the loop?
 		//If new position is negative
 			//endGame
 		//determine if user is still on mountain. isUserOnMountain(newPosition)
