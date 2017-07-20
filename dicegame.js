@@ -5,7 +5,7 @@ function diceGameStart() {
 	var currentPosition = 0;
 	var mountainTop = 10;
 	
-	displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop);
+	//displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop);
 
 	while(currentPosition >= 0 && currentPosition < mountainTop) {
 		var rollDie = confirm("Roll your die. Click OK to roll die, Cancel to quit game.");
@@ -60,4 +60,5 @@ function moveUser(numberRolled, currentPosition) {
 	}
 	return newPosition;
 }
+
 diceGameStart();
