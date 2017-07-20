@@ -5,7 +5,7 @@ function diceGameStart() {
 	var currentPosition = 0;
 	var mountainTop = 10;
 
-	alert("Quick Rules: You are free climbing a wall " + mountainTop + " meters high; no harness, no rope. Roll an even number and move forward; roll odd, move backwards. Roll a 6 and you'll get a better die, roll a 1 and you'll get a worse die. Good luck!");
+	alert("Quick Rules:\nYou are free climbing a wall " + mountainTop + " meters high; no harness, no rope.\nRolling even numbers move you forward\nRolling odd numbers moves you backwards.\nRoll a 6 and you'll get a better die.\nRoll a 1 and you'll get a worse die.\nGood luck!");
 
 	while(currentPosition >= 0 && currentPosition < mountainTop) {
 		var rollDie = confirm("You are at " + currentPosition + " meters.\n" + "Roll your die. Click OK to roll die, Cancel to quit game.");
