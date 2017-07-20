@@ -5,13 +5,11 @@ function diceGameStart() {
 	var currentPosition = 0;
 	var mountainTop = 10;
 	
+	//display users starting game status
+	displayGameStatus(currentPosition, dieArray[dieSides]);
+
 	//While the user is in position from 0 to mountainTop. //while(currentPosition > 0 && currentPosition <= mountainTop)
 	while(currentPosition >= 0 && currentPosition <= mountainTop) {
-
-		//display users current game status. Since game is first starting, currentPosition = 0, dieArray[dieSides]
-		console.log("You are at position " + currentPosition + " and you have a " + dieArray[dieSides] + " sided die." );
-		//test code currentPosition++; 
-		
 		//prompt user to roll die
 		var rollDie = confirm("Roll your die. Click OK to roll die, Cancel to quit game.");
 			//If user clicks OK
@@ -25,26 +23,30 @@ function diceGameStart() {
 			}
 
 		//move user based on number rolled.
-		//declare newPosition = moveUser(numberRolled, currentPosition)
+		//currentPosition
 		currentPosition = moveUser(numberRolled, currentPosition);
 		//var x = newPosition;
 		var y = currentPosition;
 		//break;
 
-
-		//Should the game end
-		//does user have more than 10 or a negative number. Should I determine the current position near the end of the loop?
-		//If new position is negative
-			//endGame
-		//determine if user is still on mountain. isUserOnMountain(newPosition)
+		//determine if user is still on mountain or over the mountain. isUserOnMountain(newPosition)
+		//isUserOnMountain(currentPosition, mountainTop);
+		
 
 		//determine if die is upgraded upgradeDie(numberRolled)
 			//If a player rolls a 6 and dieSides is not equal to 0, they downgrade one die
 				//move the dieSides -= 1
 			//If a player rolls a 1 and dieSides is not equal to 5 (lengthOFArray) they upgrade to the next die.
-				//dieSides += 1 
+				//dieSides += 1
+
+		//Display users current game status
+		displayGameStatus(currentPosition, dieArray[dieSides]); 
 	
 	}//END WHILE
+
+}
+function displayGameStatus(currentPosition, dieSides) {
+	console.log("You are at position " + currentPosition + " and you have a " + dieSides + " sided die." );
 }
 function getNumberRolled(dieSides) {//parameter is die index in dieArray[dieSides]
 	//declare randomNumber as number generated based on what die was rolled. i.e, if die 4 is being rolled, random number between 1 and 4
@@ -79,7 +81,10 @@ function moveUser(numberRolled, currentPosition) {//determines how/where to move
 
 
 }
-function isUserOnMountain() {
-
-}
+// function isUserOnMountain(currentPosition, mountainTop) {
+	
+// 	//does user have more than 10 or a negative number. Should I determine the current position near the end of the loop?
+// 	//If new position is negative
+// 	//endGame
+// }
 diceGameStart();//Starts aplication
