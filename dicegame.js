@@ -34,7 +34,7 @@ function diceGameStart() {
 		//determine if die is upgraded upgradeDie(numberRolled)
 			//If a player rolls a 6 and dieSides is not equal to 0, they downgrade one die
 				//move the dieSides -= 1
-			//If a player rolls a 1 they upgrade to the next die.
+			//If a player rolls a 1 and dieSides is not equal to 5 (lengthOFArray) they upgrade to the next die.
 				//dieSides += 1 
 	
 	}//END WHILE
@@ -46,14 +46,21 @@ function getNumberRolled(dieSides) {//parameter is die index in dieArray[dieSide
 	//return random number rolled
 }
 function moveUser(numberRolled, currentPosition) {//determines how/where to move user. Parameters: numberRolled, currentPosition 
-	//In case numberRolled is even
-	//If player rolls an odd number, and they have not moved forward at all, they do not move at all
-	//If player rolls an odd number and have moved forward, they move backward the number of spaces rolled
-		//If the number of spaces they are to move backward is greater than the number of spaces they have moved forward, they fall off the mountain and are out of the game
-	
-		//If player die already has 20 faces, user does not upgrade or downgrade die
-
+	var newPosition;
+	if (numberRolled % 2 !== 0 && currentPosition >= 0) {
+		//number is odd
+		newPosition = currentPosition - numberRolled;
+	} else {
+		//number is even
+		newPosition = numberRolled + currentPosition;
+	}
+	return newPosition;
 	//In case numberRolled is odd
+		//If player rolls an odd number, and they have not moved forward at all, they do not move at all
+		//If player rolls an odd number and have moved forward, they move backward the number of spaces rolled
+			//If the number of spaces they are to move backward is greater than the number of spaces they have moved forward, they fall off the mountain and are out of the game
+	
+	//In case numberRolled is even
 	//If player rolls an even number, they move forward the number of spaces rolled
 		
 
