@@ -32,7 +32,8 @@ function diceGameStart() {
 }
 function getNumberRolled(dieSides) {//parameter is die index in dieArray[dieSides]
 	//declare randomNumber as number generated based on what die was rolled. i.e, if die 4 is being rolled, random number between 1 and 4
-	var x = dieSides;	
+	var numberRolled = Math.floor((Math.random() * dieSides) + 1);
+	return numberRolled;		
 	//return random number rolled
 }
 function moveUser() {//determines how/where to move user. Parameters: numberRolled, currentPosition 
