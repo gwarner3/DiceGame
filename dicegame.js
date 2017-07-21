@@ -47,13 +47,6 @@ function upgradeDie(numberRolled, dieSides, dieArray) {
 	}
 
 	return dieSides;
-	// if (numberRolled === 6 && dieSides !== 0) {
-	// 	dieSides -= 1;
-	// } else if (numberRolled === 1 && dieSides !== 4) {
-	// 	dieSides += 1;
-	// }
-
-	// return dieSides;
 }
 function displayGameStatus(currentPosition, numberRolled, dieSides, mountainTop) {
 	if (currentPosition >= mountainTop){		
