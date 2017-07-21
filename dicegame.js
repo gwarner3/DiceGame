@@ -20,23 +20,27 @@ function diceGameStart() {
 	//Now i need to run this for each player in the players array.
 	//players roll die simultaneuosuly
 
-	//while loop
-	while(currentPosition >= 0 && currentPosition < mountainTop) {
-		var rollDie = confirm("You are at " + currentPosition + " meters.\n" + "Roll your die. Click OK to roll die, Cancel to quit game.");
+	//while loop will run at least once for each player but must indicate 
+	// while(currentPosition >= 0 && currentPosition < mountainTop) {
 
-			if (rollDie) {
-				var numberRolled = getNumberRolled(dieArray[dieSides]);
-			} else {
-				break;
-			}
+	// 	//roll die for all players
+	// 	var rollDie = confirm("You are at " + currentPosition + " meters.\n" + "Roll your die. Click OK to roll die, Cancel to quit game.");
 
-		currentPosition = moveUser(numberRolled, currentPosition);
+	// 		if (rollDie) {
+	// 			var numberRolled = getNumberRolled(dieArray[dieSides]);
+	// 		} else {
+	// 			break;
+	// 		}
+	// 	//end for loop
 
-		var newDieSides = upgradeDie(numberRolled, dieSides, dieArray);
-		dieSides = newDieSides;
+	// 	//for each player in the loop
+	// 	currentPosition = moveUser(numberRolled, currentPosition);
 
-		displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop); 	
-	}
+	// 	var newDieSides = upgradeDie(numberRolled, dieSides, dieArray);
+	// 	dieSides = newDieSides;
+
+	// 	displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop); 	
+	// }
 }
 function playerObject() {
 		this.playerName =  "";
@@ -46,54 +50,54 @@ function playerObject() {
 		this.mountainTop = 10;
 		this.isInGame = true;
 }
-function upgradeDie(numberRolled, dieSides, dieArray) {
-	switch(numberRolled) {
-		case 6:
-			if (dieSides !== 0) {
-				dieSides -=1 ;
-				console.log("You rolled 6 and will downgrade to a " + dieArray[dieSides] + " sided die");
-			} else {
+// function upgradeDie(numberRolled, dieSides, dieArray) {
+// 	switch(numberRolled) {
+// 		case 6:
+// 			if (dieSides !== 0) {
+// 				dieSides -=1 ;
+// 				console.log("You rolled 6 and will downgrade to a " + dieArray[dieSides] + " sided die");
+// 			} else {
 
-			}
-			break;			
-		case 1:
-			if (dieSides !==4) {
-				dieSides += 1;
-				console.log("You rolled 1 and will upgrade to a " + dieArray[dieSides] + " sided die");
-			} else {
+// 			}
+// 			break;			
+// 		case 1:
+// 			if (dieSides !==4) {
+// 				dieSides += 1;
+// 				console.log("You rolled 1 and will upgrade to a " + dieArray[dieSides] + " sided die");
+// 			} else {
 
-			}
-			break;			
-		default:
-			break; 
-	}
+// 			}
+// 			break;			
+// 		default:
+// 			break; 
+// 	}
 
-	return dieSides;
-}
-function displayGameStatus(currentPosition, numberRolled, dieSides, mountainTop) {
-	if (currentPosition >= mountainTop){		
-		console.log("Congratulations, you just rolled a " + numberRolled + " and free climbed a total " + currentPosition + " meters!");		
-	} else if (currentPosition < 0) {
-		console.log("Uh-oh, you rolled a " + numberRolled + " and fell right off the wall.");
-	} else {
-		console.log("You rolled a " + numberRolled + ". You are now at position " + currentPosition + " holding a " + dieSides + " sided die." );
-	}	
-}
-function getNumberRolled(dieSides) {
-	var numberRolled = Math.floor((Math.random() * dieSides) + 1);
+// 	return dieSides;
+// }
+// function displayGameStatus(currentPosition, numberRolled, dieSides, mountainTop) {
+// 	if (currentPosition >= mountainTop){		
+// 		console.log("Congratulations, you just rolled a " + numberRolled + " and free climbed a total " + currentPosition + " meters!");		
+// 	} else if (currentPosition < 0) {
+// 		console.log("Uh-oh, you rolled a " + numberRolled + " and fell right off the wall.");
+// 	} else {
+// 		console.log("You rolled a " + numberRolled + ". You are now at position " + currentPosition + " holding a " + dieSides + " sided die." );
+// 	}	
+// }
+// function getNumberRolled(dieSides) {
+// 	var numberRolled = Math.floor((Math.random() * dieSides) + 1);
 
-	return numberRolled;		
-}
-function moveUser(numberRolled, currentPosition) { 
-	var newPosition;
-	if (numberRolled % 2 !== 0 && currentPosition === 0) {
-		newPosition = currentPosition;
-	} else if (numberRolled % 2 !== 0 && currentPosition > 0) {
-		newPosition = currentPosition - numberRolled;
-	} else if (numberRolled % 2 === 0) {	
-		newPosition = numberRolled + currentPosition;
-	}
+// 	return numberRolled;		
+// }
+// function moveUser(numberRolled, currentPosition) { 
+// 	var newPosition;
+// 	if (numberRolled % 2 !== 0 && currentPosition === 0) {
+// 		newPosition = currentPosition;
+// 	} else if (numberRolled % 2 !== 0 && currentPosition > 0) {
+// 		newPosition = currentPosition - numberRolled;
+// 	} else if (numberRolled % 2 === 0) {	
+// 		newPosition = numberRolled + currentPosition;
+// 	}
 
-	return newPosition;
-}
+// 	return newPosition;
+// }
 diceGameStart();
