@@ -16,8 +16,11 @@ function diceGameStart() {
 		players.push(player);
 		players[i].playerName = "Player - " + (i + 1); 
 	}
-	//break;
+	
+	//Now i need to run this for each player in the players array.
+	//players roll die simultaneuosuly
 
+	//while loop
 	while(currentPosition >= 0 && currentPosition < mountainTop) {
 		var rollDie = confirm("You are at " + currentPosition + " meters.\n" + "Roll your die. Click OK to roll die, Cancel to quit game.");
 
