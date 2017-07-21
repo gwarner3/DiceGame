@@ -11,16 +11,25 @@ function diceGameStart() {
 
 	var players = [];
 
-	for (var i = 0; i <= numberOfPlayers; i++) {
+	for (var i = 0; i < numberOfPlayers; i++) {
 		var player = new playerObject();
 		players.push(player);
 		players[i].playerName = "Player - " + (i + 1); 
 	}
-	
+	//break;
 	//Now i need to run this for each player in the players array.
 	//players roll die simultaneuosuly
 
-	//while loop will run at least once for each player but must indicate 
+	//while loop will run at least once for each player but must indicate
+	
+	for (var i = 0; i < players.length; i++) {
+		var x = players[i].playerName;
+		console.log(x);
+		// while(players[i].currentPosition >= 0 && players[i].currentPosition < players[i].mountainTop) {}
+		// 	var x = players[i].playerName;
+		// console.log(x);
+			
+	} 
 	// while(currentPosition >= 0 && currentPosition < mountainTop) {
 
 	// 	//roll die for all players
