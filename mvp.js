@@ -1,22 +1,11 @@
 "use strict"
 function diceGameStart() {
-	// var dieArray = [4,6,8,12,20];
-	// var dieSides = 1;
-	// var currentPosition = 0;
-	// var mountainTop = 10;
+	var dieArray = [4,6,8,12,20];
+	var dieSides = 1;
+	var currentPosition = 0;
+	var mountainTop = 10;
 
-	// alert("Quick Rules:\nYou are free climbing a wall " + mountainTop + " meters high; no harness, no rope.\nRolling even numbers move you forward\nRolling odd numbers moves you backwards.\nRoll a 6 and you'll get a better die.\nRoll a 1 and you'll get a worse die.\nGood luck!");
-
-	var numberOfPlayers = parseInt(prompt("How many players"));
-
-	var players = [];
-
-	for (var i = 0; i <= numberOfPlayers; i++) {
-		var player = new playerObject();
-		players.push(player);
-		players[i].playerName = "Player - " + (i + 1); 
-	}
-	//break;
+	alert("Quick Rules:\nYou are free climbing a wall " + mountainTop + " meters high; no harness, no rope.\nRolling even numbers move you forward\nRolling odd numbers moves you backwards.\nRoll a 6 and you'll get a better die.\nRoll a 1 and you'll get a worse die.\nGood luck!");
 
 	while(currentPosition >= 0 && currentPosition < mountainTop) {
 		var rollDie = confirm("You are at " + currentPosition + " meters.\n" + "Roll your die. Click OK to roll die, Cancel to quit game.");
@@ -34,14 +23,6 @@ function diceGameStart() {
 
 		displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop); 	
 	}
-}
-function playerObject() {
-		this.playerName =  "";
-		this.dieArray = [4,6,8,12,20];
-		this.dieSides = 1;
-		this.currentPosition = 0;
-		this.mountainTop = 10;
-		this.isInGame = true;
 }
 function upgradeDie(numberRolled, dieSides, dieArray) {
 	switch(numberRolled) {
