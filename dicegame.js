@@ -18,20 +18,42 @@ function diceGameStart() {
 
 		currentPosition = moveUser(numberRolled, currentPosition);
 
-		var newDieSides = upgradeDie(numberRolled, dieSides);
+		var newDieSides = upgradeDie(numberRolled, dieSides, dieArray);
 		dieSides = newDieSides;
 
 		displayGameStatus(currentPosition, numberRolled, dieArray[dieSides], mountainTop); 	
 	}
 }
-function upgradeDie(numberRolled, dieSides) {
-	if (numberRolled === 6 && dieSides !== 0) {
-		dieSides -= 1;
-	} else if (numberRolled === 1 && dieSides !== 4) {
-		dieSides += 1;
+function upgradeDie(numberRolled, dieSides, dieArray) {
+	switch(numberRolled) {
+		case 6:
+			if (dieSides !== 0) {
+				dieSides -=1 ;
+				console.log("You rolled 6 and will downgrade to a " + dieArray[dieSides] + " sided die");
+			} else {
+
+			}
+			break;			
+		case 1:
+			if (dieSides !==4) {
+				dieSides += 1;
+				console.log("You rolled 1 and will upgrade to a " + dieArray[dieSides] + " sided die");
+			} else {
+
+			}
+			break;			
+		default:
+			break; 
 	}
 
 	return dieSides;
+	// if (numberRolled === 6 && dieSides !== 0) {
+	// 	dieSides -= 1;
+	// } else if (numberRolled === 1 && dieSides !== 4) {
+	// 	dieSides += 1;
+	// }
+
+	// return dieSides;
 }
 function displayGameStatus(currentPosition, numberRolled, dieSides, mountainTop) {
 	if (currentPosition >= mountainTop){		
