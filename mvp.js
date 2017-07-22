@@ -30,16 +30,12 @@ function upgradeDie(numberRolled, dieSides, dieArray) {
 			if (dieSides !== 0) {
 				dieSides -=1 ;
 				console.log("You rolled 6 and will downgrade to a " + dieArray[dieSides] + " sided die");
-			} else {
-
 			}
 			break;			
 		case 1:
 			if (dieSides !==4) {
 				dieSides += 1;
 				console.log("You rolled 1 and will upgrade to a " + dieArray[dieSides] + " sided die");
-			} else {
-
 			}
 			break;			
 		default:

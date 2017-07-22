@@ -16,7 +16,7 @@ function diceGameStart() {
 
 		moveUser(players);
 
-		upgradeGie(players);
+		upgradeDie(players);
 
 		//control tool to break out of while loop during tests 
 		players[1].isInGame = false;
@@ -25,7 +25,22 @@ function diceGameStart() {
 }
 function upgradeDie(players) {
 	for (var i = 0; i < players.length; i++) {
-		
+		switch(players[i].numberRolled) {
+			case 6:
+				if (players[i].dieSides !== 0) {
+					players[i].dieSides -=1 ;
+					console.log(players[i].playerName + " rolled 6 and will downgrade to a " + players[i].dieArray[players[i].dieSides] + " sided die");
+				}
+				break;			
+			case 1:
+				if (players[i].dieSides !==4) {
+					players[i].dieSides += 1;
+					console.log(players[i].playerName + " rolled 1 and will upgrade to a " + players[i].dieArray[players[i].dieSides] + " sided die");
+				}
+				break;			
+			default:
+				break; 
+		}
 	}
 }
 function moveUser(players) {
