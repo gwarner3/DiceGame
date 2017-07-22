@@ -13,8 +13,30 @@ function diceGameStart() {
 		 } else {
 		 	break;
 		 }
+
+		moveUser(players);
+
+		upgradeGie(players);
+
 		//control tool to break out of while loop during tests 
 		players[1].isInGame = false;
+
+	}
+}
+function upgradeDie(players) {
+	for (var i = 0; i < players.length; i++) {
+		
+	}
+}
+function moveUser(players) {
+	for (var i = 0; i < players.length; i++) {
+		if (players[i].numberRolled % 2 !== 0 && players[i].currentPosition === 0) {
+			players[i].currentPosition = players[i].currentPosition;
+		} else if (players[i].numberRolled % 2 !== 0 && players[i].currentPosition > 0) {
+			players[i].currentPosition -= players[i].numberRolled;
+		} else if (players[i].numberRolled % 2 === 0) {	
+			players[i].currentPosition += players[i].numberRolled;
+		}
 	}
 }
 function getNumberRolled(players) {	
