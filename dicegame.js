@@ -19,6 +19,27 @@ function diceGameStart() {
 		upgradeDie(players);
 
 		displayGameStatus(players);
+
+		displayWinners(players);
+
+		didAllFall(players);
+	}
+}
+function didAllFall(players) {
+	if (players[0].isOnWall === false && players[1].isOnWall === false && players[2].isOnWall === false) {
+		alert("Everyone has fallen off the wall. Game over");
+		console.log("Game over, no winners");
+		players[0].isInGame = false;
+		players[1].isInGame = false;
+		players[2].isInGame = false;
+	}
+}
+function displayWinners(players) {
+	for (var i = 0; i < players.length; i++) {
+		if (players[i].currentPosition >= players[i].mountainTop) {
+			var highestPointClimbed = Math.max(players[0].currentPosition, players[1].currentPosition, players[2].currentPosition);
+			console.log(players[i].playerName + " climbed " + players[i].currentPosition + " meters and is a winner!");
+		}
 	}
 }
 function displayGameStatus(players) {
@@ -83,7 +104,7 @@ function createPlayers() {
 			dieArray: [4,6,8,12,20],
 			dieSides: 1,
 			currentPosition: 0,
-			mountainTop: 60,
+			mountainTop: 15,
 			isInGame: true,
 			isOnWall: true,
 			numberRolled: 0,
@@ -93,7 +114,7 @@ function createPlayers() {
 			dieArray: [4,6,8,12,20],
 			dieSides: 1,
 			currentPosition: 0,
-			mountainTop: 60,
+			mountainTop: 15,
 			isInGame: true,
 			isOnWall: true,
 			numberRolled: 0,
@@ -103,7 +124,7 @@ function createPlayers() {
 			dieArray: [4,6,8,12,20],
 			dieSides: 1,
 			currentPosition: 0,
-			mountainTop: 60,
+			mountainTop: 15,
 			isInGame: true,
 			isOnWall: true,
 			numberRolled: 0,
