@@ -31,7 +31,7 @@ function displayGameStatus(players) {
 			players[i].isOnWall = false;
 			players.splice[i];
 
-		} else {
+		} else if (players[i].isOnWall) {
 			console.log(players[i].playerName + " rolled a " + players[i].numberRolled + " and is at position " + players[i].currentPosition + " holding a " + players[i].dieArray[players[i].dieSides] + " sided die." );
 		}
 	}	
@@ -68,8 +68,9 @@ function moveUser(players) {
 	}
 }
 function getNumberRolled(players) {
-	if (players[i].isOnWall) {
+	
 		for (var i = 0; i < players.length; i++) {
+			if (players[i].isOnWall) {
 			var numberRolled = Math.floor((Math.random() * players[i].dieArray[players[i].dieSides]) + 1);
 			players[i].numberRolled = numberRolled;
 		}
